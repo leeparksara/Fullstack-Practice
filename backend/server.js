@@ -46,7 +46,7 @@ client.connect(function (err) {
 app.get('/', (req, res) => {
     res.json('Hejsan')
 })
-
+ 
 // Get request to get all the created users
 app.get('/persons', async (req, res) => {
     try {
