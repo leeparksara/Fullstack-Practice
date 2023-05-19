@@ -26,7 +26,7 @@ app.use((request, response, next) => {
     next()
 })
 
-// implement the database
+// implement the databass
 
 const client = new Client({
     database: process.env.DATABASE,
@@ -46,7 +46,7 @@ client.connect(function (err) {
 app.get('/', (req, res) => {
     res.json('Hejsan')
 })
- 
+
 // Get request to get all the created users
 app.get('/persons', async (req, res) => {
     try {
@@ -72,6 +72,28 @@ app.post('/persons/submit-form', async (req, res) => {
     } catch (err) {
         console.error(err)
         res.sendStatus(500)
+    }
+})
+
+// delete user by their id
+
+app.delete('/persons/:id', async (req, res) => {
+    try {
+        const { id } = req.params
+        await client.query('DELETE FROM person WHERE id = $1', [id])
+        res.json({ message: 'user Deleted' })
+    } catch (err) {
+        console.log(err.message)
+    }
+})
+
+// Delete all the user at once
+app.delete('/persons', async (req, res) => {
+    try {
+        await client.query('DELETE FROM person')
+        res.json({ message: 'user Deleted' })
+    } catch (err) {
+        console.log(err.message)
     }
 })
 
