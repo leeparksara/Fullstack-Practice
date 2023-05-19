@@ -4,7 +4,7 @@ import pkg from 'pg'
 const { Client } = pkg
 
 import express from 'express'
-
+ 
 import cors from 'cors'
 import bodyParser from 'body-parser'
 
@@ -74,7 +74,7 @@ app.post('/persons/submit-form', async (req, res) => {
         res.sendStatus(500)
     }
 })
- 
+
 // delete user by their id
 
 app.delete('/persons/:id', async (req, res) => {
