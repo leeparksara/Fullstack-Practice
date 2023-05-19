@@ -64,9 +64,9 @@ function App() {
       .catch(error => {
         console.error('unable deleting user:', error);
       });
-  };
+  }; 
 
-  return ( 
+  return (
     <>
       <div className='form-container'>
         <form className='form' onSubmit={handleSubmit}>

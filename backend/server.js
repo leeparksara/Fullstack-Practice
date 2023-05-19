@@ -74,7 +74,7 @@ app.post('/persons/submit-form', async (req, res) => {
         res.sendStatus(500)
     }
 })
-
+ 
 // delete user by their id
 
 app.delete('/persons/:id', async (req, res) => {
